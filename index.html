@@ -21,13 +21,13 @@
     <!--==============  HEADER  ==========-->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav_logo">Charly</a>
+            <a href="#" class="nav__logo">Charly</a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list grid">
                     <!-- 1 nav item -->
                     <li class="nav__item">
-                        <a href="#home" class="nav__link">
+                        <a href="#home" class="nav__link active-link">
                             <i class="uil uil-estate nav__icon"></i> Home
                         </a>
                     </li>
@@ -77,9 +77,11 @@
             </div>
         </nav>
     </header>
+
     <!--==============  MAIN  ==========-->
     <main class="main">
 
+        <!--==============  HOME  ==========-->
         <section class="home section" id="home">
             <div class="home__container container grid">
                 <div class="class__content grid">
@@ -129,8 +131,7 @@
             </div>
         </section>
 
-
-        <!-- =========  About me ======== -->
+        <!-- =========  ABOUT ======== -->
         <section class="about section" id="about">
             <h2 class="section__title">About me</h2>
             <span class="section__subtitle">My introduction</span>
@@ -715,23 +716,59 @@
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="swiper-button-next">
                     <!-- <i class="uil uil-angle-right-b swiper-portfolio-icon"></i> -->
                 </div>
                 <div class="swiper-button-prev">
                     <!-- <i class="uil uil-angle-left-b swiper-portfolio-icon"></i> -->
                 </div>
-    
                 <div class="swiper-pagination"></div>
                 </div>
             </div>
-
-
         </section>
 
+        <!--==================== CONTACT ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">
+                Contact Me
+            </h2>
+            <span class="section__subtitle">Get in touch</span>
+
+            <div class="contact__container container grid">
+                <div class="">
+                    <!-- TELEPHONE -->
+                    <div class="contact__information">
+                        <i class="uil uil-phone contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Call me</h3>
+                            <span class="contact__subtitle">55-86-83-24-59</span>
+                        </div>
+                    </div>
+                    <!-- EMAIL -->
+                    <div class="contact__information">
+                        <i class="uil uil-envelope contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Email</h3>
+                            <span class="contact__subtitle">carlos.zepeda.654@gmail.com</span>
+                        </div>
+                    </div>
+                    <!-- LOCATION -->
+                    <div class="contact__information">
+                        <i class="uil uil-map-marker contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Location</h3>
+                            <span class="contact__subtitle">Mexico city</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
 
     </main>
     <!--==============  FOOTER  ==========-->
@@ -740,15 +777,35 @@
             <div class="footer__container container grid">
                 <div>
                     <h1 class="footer__title">Charly</h1>
-                    <span class="footer_subtitle">Frontend developer</span>
+                    <span class="footer__subtitle">Web developer</span>
                 </div>
 
                 <ul class="footer__links">
                     <li>
-                        <a href="#" class="footer_link"></a>
+                        <a href="#services" class="footer__link">Services</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="footer__link">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="footer__link">Contact</a>
                     </li>
                 </ul>
+
+                <div class="footer__socials">
+                    <!-- LinKedin -->
+                    <a href="https://www.linkedin.com/in/carlos-zep-ram/" target="_blank" class="footer__social">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <!-- Github -->
+                    <a href="https://www.github.com/zeped418" target="_blank" class="footer__social">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+                </div>
             </div>
+
+            <p class="footer__copy">&#169; Carlos Zepeda </p>
+
         </div>
 
     </footer>
@@ -762,7 +819,7 @@
     <!--==============  TYPED JS  ==========-->
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-
+    <!-- FUNCTION FOR TYPING -->
     <script>
 
         let typed = new Typed('#element', {
