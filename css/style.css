@@ -275,8 +275,8 @@ img {
     color: var(--first-color-alt);
 }
 
-.home_blob {
-    width: 200px;
+.home__blob {
+    width: 300px;
     fill: var(--first-color);
 }
 
