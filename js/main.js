@@ -2,7 +2,7 @@ const navMenu = document.getElementById("nav-menu"),
     navToggle = document.getElementById("nav-toggle"),
     navClose = document.getElementById("nav-close");
 
-// valida si la contante existe
+// 
 if (navToggle) {
     navToggle.addEventListener("click", () => {
         navMenu.classList.add("show-menu")
