@@ -114,27 +114,132 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
-function scrollActive(){
+function scrollActive() {
     const scrollY = window.pageYOffset
 
-    sections.forEach(current =>{
+    sections.forEach(current => {
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id')
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
+        } else {
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
         }
     })
 }
 window.addEventListener('scroll', scrollActive)
 
-/*==================== CHANGE BACKGROUND HEADER ====================*/ 
-function scrollHeader(){
+/*==================== CHANGE BACKGROUND HEADER ====================*/
+function scrollHeader() {
     const nav = document.getElementById('header')
     // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
-    if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+    if (this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
+
+/*==================== SEND MESSAGE ====================*/
+const btnSend = document.getElementById("btnSend");
+const input__name = document.getElementById("input__name");
+const input__phone = document.getElementById("input__phone");
+const input__email = document.getElementById("input__email");
+const input__message = document.getElementById("input__message");
+const alert__text = document.getElementById("alert__text");
+const alert__element = document.getElementById("alert__element");
+let isValid;
+let isName;
+let isPhone;
+let isEmail;
+let isMessage;
+
+function alertWrong() {
+    swal("Oh no!", "Something went wrong. Please check the form again", "error");
+}
+
+function alertSuccess() {
+    swal("Great!", "I'll get in touch soon with you", "success");
+}
+
+function checkName() {
+
+    let name = String(input__name.value.trim().toUpperCase());
+    let regexName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[^\d]{3,50}/;
+
+
+    if (regexName.test(name)) {
+        input__name.style.border = ""
+        isName = true;
+    } else {
+        input__name.style.border = "solid thin red";
+        isName = false;
+    }
+}
+
+
+function checkPhone() {
+
+    let phone = String(input__phone.value.trim().toUpperCase());
+    let regexPhone = /^[0-9]{10}$/;
+    let sum = 0;
+
+    for (i = 0; i < phone.length; i++) {
+        if (phone.charAt(i) == phone.charAt(i + 1)) {
+            sum++;
+        }
+    }
+
+    if (regexPhone.test(phone) && !(sum > 4)) {
+        input__phone.style.border = "";
+        isPhone = true;
+    } else {
+        input__phone.style.border = "solid thin red";
+        isPhone = false;
+    }
+}
+
+function checkEmail() {
+
+    let email = String(input__email.value.trim().toLowerCase());
+    let regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (regexEmail.test(email)) {
+        input__email.style.border = "";
+        isEmail = true;
+    } else {
+        input__email.style.border = "solid thin red";
+        isEmail = false;
+    }
+}
+
+function checkMessage() {
+    let message = String(input__message.value.trim().toLowerCase());
+    let regexMessage = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[^\d]{5,500}/;
+
+    if (regexMessage.test(message)) {
+        input__message.style.border = ""
+        isMessage = true;
+    } else {
+        input__message.style.border = "solid thin red";
+        isMessage = false;
+    }
+}
+
+btnSend.addEventListener("click", function (event) {
+
+    event.preventDefault();
+    checkName();
+    checkPhone();
+    checkEmail();
+    checkMessage();
+    isValid=(isName && isPhone && isEmail && isMessage)
+    if (isValid) {
+        input__name.value = "";
+        input__phone.value = "";
+        input__email.value = "";
+        input__message.value = "";
+        alertSuccess();
+    } else {
+        alertWrong();
+    }
+});

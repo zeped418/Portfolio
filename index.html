@@ -768,28 +768,31 @@
                     <div class="contact__inputs grid">
                         <div class="contact__content">
                             <label for="" class="contact__label">Nombre</label>
-                            <input type="text" class="contact__input">
+                            <input type="text" class="contact__input" id="input__name" required minlength="3" maxlength="50" autocomplete="name">
                         </div>
+                        
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Phone</label>
+                            <input type="text" class="contact__input" id="input__phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" autocomplete="tel" required minlength="10" maxlength="10">
+                        </div>
+
                         <div class="contact__content">
                             <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input">
+                            <input type="email" class="contact__input" id="input__email"  autocomplete="email">
+                        </div>
+                        
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Mensaje</label>
+                            <textarea name="" id="input__message" cols="0" rows="7" class="contact__input"></textarea>
                         </div>
                     </div>
 
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Proyecto</label>
-                        <input type="text" class="contact__input">
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Mensaje</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
-                    </div>
 
                     <div>
-                        <a href="#" class="button button--flex">
-                            Enviar Mensaje
+                        <span href="#" class="button button--flex" id="btnSend">
+                            Enviar mensaje
                             <i class="uil uil message button__icon"></i>
-                        </a>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -836,6 +839,8 @@
 
     </footer>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!--==============  SWIPER JS  ==========-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
@@ -847,7 +852,6 @@
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <!-- FUNCTION FOR TYPING -->
     <script>
-
         let typed = new Typed('#element', {
             strings: [
                 "Hello there!", "I am Carlos",
@@ -862,7 +866,6 @@
             startDelay: 1500
         });
     </script>
-
 </body>
 
 </html>
