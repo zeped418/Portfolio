@@ -763,27 +763,50 @@
                         </div>
                     </div>
                 </div>
-
-                <form class="contact__form grid" id="myForm" action="https://formsubmit.co/tester.anonimo.85@gmail.com" method="POST">
+                <!-- CONTACT FORM -->
+                <form class="contact__form grid" id="myForm" action="https://formsubmit.co/tester.anonimo.85@gmail.com"
+                    method="POST">
+                    
                     <div class="contact__inputs grid">
                         <div class="contact__content">
+                            <div class="warning__information" style="display:none;" role="alert" id="alert__element__name">
+                                <i class="uil uil-exclamation-triangle warning__icon"></i> 
+                                <span class="contact__subtitle" id="alert__text__name" style="color: red;"></span>
+                            </div>
                             <label for="input__name" class="contact__label">Nombre</label>
-                            <input type="text" class="contact__input" id="input__name" required minlength="3" maxlength="50" autocomplete="name" name="name">
-                        </div>
-                        
-                        <div class="contact__content">
-                            <label for="input__phone" class="contact__label">Phone</label>
-                            <input type="text" class="contact__input" id="input__phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" autocomplete="tel" required minlength="10" maxlength="10" name="phone">
+                            <input type="text" class="contact__input" id="input__name" required minlength="3"
+                                maxlength="50" autocomplete="name" name="name">
                         </div>
 
                         <div class="contact__content">
-                            <label for="input__email" class="contact__label">Email</label>
-                            <input type="email" class="contact__input" id="input__email"  autocomplete="email" name="email">
+                            <div class="warning__information" style="display:none;" role="alert" id="alert__element__phone">
+                                <i class="uil uil-exclamation-triangle warning__icon"></i> 
+                                <span class="contact__subtitle" id="alert__text__phone" style="color: red;"></span>
+                            </div>
+                            <label for="input__phone" class="contact__label">Phone</label>
+                            <input type="text" class="contact__input" id="input__phone"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                autocomplete="tel" required minlength="10" maxlength="10" name="phone">
                         </div>
-                        
+
                         <div class="contact__content">
+                            <div class="warning__information" style="display:none;" role="alert" id="alert__element__email">
+                                <i class="uil uil-exclamation-triangle warning__icon"></i> 
+                                <span class="contact__subtitle" id="alert__text__email" style="color: red;"></span>
+                            </div>
+                            <label for="input__email" class="contact__label">Email</label>
+                            <input type="email" class="contact__input" id="input__email" autocomplete="email"
+                                name="email">
+                        </div>
+
+                        <div class="contact__content">
+                            <div class="warning__information" style="display:none;" role="alert" id="alert__element__message">
+                                <i class="uil uil-exclamation-triangle warning__icon"></i> 
+                                <span class="contact__subtitle" id="alert__text__message" style="color: red;"></span>
+                            </div>
                             <label for="input__message" class="contact__label">Mensaje</label>
-                            <textarea id="input__message" cols="0" rows="7" class="contact__input" name="message"></textarea>
+                            <textarea id="input__message" cols="0" rows="7" class="contact__input"
+                                name="message"></textarea>
                         </div>
                     </div>
                     <input type="hidden" name="_captcha" value="false">

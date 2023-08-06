@@ -141,24 +141,32 @@ window.addEventListener('scroll', scrollHeader)
 
 /*==================== SEND MESSAGE ====================*/
 
-const myForm=document.getElementById('myForm');
+const myForm = document.getElementById('myForm');
 const btnSend = document.getElementById("btnSend");
 const input__name = document.getElementById("input__name");
 const input__phone = document.getElementById("input__phone");
 const input__email = document.getElementById("input__email");
 const input__message = document.getElementById("input__message");
-const alert__text = document.getElementById("alert__text");
-const alert__element = document.getElementById("alert__element");
+const alert__element__name = document.getElementById("alert__element__name");
+const alert__text__name = document.getElementById("alert__text__name");
+const alert__element__phone = document.getElementById("alert__element__phone");
+const alert__text__phone = document.getElementById("alert__text__phone");
+const alert__element__email = document.getElementById("alert__element__email");
+const alert__text__email = document.getElementById("alert__text__email");
+const alert__element__message = document.getElementById("alert__element__message");
+const alert__text__message= document.getElementById("alert__text__message");
 
 let isValid;
 let isName;
 let isPhone;
 let isEmail;
 let isMessage;
+
 const audioFalse = new Audio();
-audioFalse.src="./sounds/pop.mp3";
-const audioTrue=new Audio();
-audioTrue.src="./sounds/pew.mp3"
+audioFalse.src = "./sounds/pop.mp3";
+
+const audioTrue = new Audio();
+audioTrue.src = "./sounds/pew.mp3"
 
 function alertWrong() {
     swal("Oh no!", "Something went wrong. Please check the form again", "error");
@@ -171,14 +179,23 @@ function alertSuccess() {
 function checkName() {
 
     let name = String(input__name.value.trim().toUpperCase());
-    let regexName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[^\d]{3,50}/;
+    let regexName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-][^\d]{2,50}/;
+    let notHasNumber=0;
 
+    for (i=0;i<name.length;i++){
+        if(!isNaN(name.charAt(i))){
+            notHasNumber++
+        }
+    }
 
-    if (regexName.test(name)) {
+    if (regexName.test(name) && notHasNumber<1) {
         input__name.style.border = ""
         isName = true;
     } else {
         input__name.style.border = "solid thin red";
+        alert__element__name.style.display="block"
+        alert__text__name.insertAdjacentHTML("afterbegin",
+        `Name is wrong.`);
         isName = false;
     }
 }
@@ -201,6 +218,9 @@ function checkPhone() {
         isPhone = true;
     } else {
         input__phone.style.border = "solid thin red";
+        alert__element__phone.style.display="block"
+        alert__text__phone.insertAdjacentHTML("afterbegin",
+        `Phone is incorrect.`);
         isPhone = false;
     }
 }
@@ -215,19 +235,25 @@ function checkEmail() {
         isEmail = true;
     } else {
         input__email.style.border = "solid thin red";
+        alert__element__email.style.display="block"
+        alert__text__email.insertAdjacentHTML("afterbegin",
+        `Email is incorrect.`);
         isEmail = false;
     }
 }
 
 function checkMessage() {
     let message = String(input__message.value.trim().toLowerCase());
-    let regexMessage = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+[^\d]{5,500}/;
+    let regexMessage = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'0-9]{10,500}/;
 
     if (regexMessage.test(message)) {
         input__message.style.border = ""
         isMessage = true;
     } else {
         input__message.style.border = "solid thin red";
+        alert__element__message.style.display="block"
+        alert__text__message.insertAdjacentHTML("afterbegin",
+        `Message incorrect.`);
         isMessage = false;
     }
 }
@@ -235,16 +261,29 @@ function checkMessage() {
 btnSend.addEventListener("click", function (event) {
 
     event.preventDefault();
+
+    alert__text__name.innerHTML = "";
+    alert__element__name.style.display = "none";
+
+    alert__text__email.innerHTML = "";
+    alert__element__email.style.display = "none";
+
+    alert__text__phone.innerHTML = "";
+    alert__element__phone.style.display = "none";
+
+    alert__text__message.innerHTML = "";
+    alert__element__message.style.display = "none";
+
     checkName();
     checkPhone();
     checkEmail();
     checkMessage();
-    isValid=(isName && isPhone && isEmail && isMessage)
+    isValid = (isName && isPhone && isEmail && isMessage)
     if (isValid) {
-        // input__name.value = "";
-        // input__phone.value = "";
-        // input__email.value = "";
-        // input__message.value = "";
+        input__name.value = "";
+        input__phone.value = "";
+        input__email.value = "";
+        input__message.value = "";
         audioTrue.play()
         alertSuccess();
         myForm.submit();

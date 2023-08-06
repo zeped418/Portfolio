@@ -748,6 +748,17 @@ font-size: var(--h1-font-size);}
 	padding: .25rem .5rem .5rem 1rem;
 }
 
+.warning__information{
+    display: flex;
+    margin-bottom: 0;
+    background-color: var(--body-color);
+}
+
+.warning__icon{
+    font-size: var(--small-font-size);
+    color: red;
+}
+
 #btnSend:active{
     font-size: 1rem;
 }
