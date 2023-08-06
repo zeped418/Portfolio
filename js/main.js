@@ -140,6 +140,8 @@ function scrollHeader() {
 window.addEventListener('scroll', scrollHeader)
 
 /*==================== SEND MESSAGE ====================*/
+
+const myForm=document.getElementById('myForm');
 const btnSend = document.getElementById("btnSend");
 const input__name = document.getElementById("input__name");
 const input__phone = document.getElementById("input__phone");
@@ -147,11 +149,16 @@ const input__email = document.getElementById("input__email");
 const input__message = document.getElementById("input__message");
 const alert__text = document.getElementById("alert__text");
 const alert__element = document.getElementById("alert__element");
+
 let isValid;
 let isName;
 let isPhone;
 let isEmail;
 let isMessage;
+const audioFalse = new Audio();
+audioFalse.src="./sounds/pop.mp3";
+const audioTrue=new Audio();
+audioTrue.src="./sounds/pew.mp3"
 
 function alertWrong() {
     swal("Oh no!", "Something went wrong. Please check the form again", "error");
@@ -234,12 +241,16 @@ btnSend.addEventListener("click", function (event) {
     checkMessage();
     isValid=(isName && isPhone && isEmail && isMessage)
     if (isValid) {
-        input__name.value = "";
-        input__phone.value = "";
-        input__email.value = "";
-        input__message.value = "";
+        // input__name.value = "";
+        // input__phone.value = "";
+        // input__email.value = "";
+        // input__message.value = "";
+        audioTrue.play()
         alertSuccess();
+        myForm.submit();
     } else {
+        audioFalse.play()
         alertWrong();
     }
 });
+

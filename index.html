@@ -764,34 +764,33 @@
                     </div>
                 </div>
 
-                <form action="" class="contact__form grid">
+                <form class="contact__form grid" id="myForm" action="https://formsubmit.co/tester.anonimo.85@gmail.com" method="POST">
                     <div class="contact__inputs grid">
                         <div class="contact__content">
-                            <label for="" class="contact__label">Nombre</label>
-                            <input type="text" class="contact__input" id="input__name" required minlength="3" maxlength="50" autocomplete="name">
+                            <label for="input__name" class="contact__label">Nombre</label>
+                            <input type="text" class="contact__input" id="input__name" required minlength="3" maxlength="50" autocomplete="name" name="name">
                         </div>
                         
                         <div class="contact__content">
-                            <label for="" class="contact__label">Phone</label>
-                            <input type="text" class="contact__input" id="input__phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" autocomplete="tel" required minlength="10" maxlength="10">
+                            <label for="input__phone" class="contact__label">Phone</label>
+                            <input type="text" class="contact__input" id="input__phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" autocomplete="tel" required minlength="10" maxlength="10" name="phone">
                         </div>
 
                         <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input" id="input__email"  autocomplete="email">
+                            <label for="input__email" class="contact__label">Email</label>
+                            <input type="email" class="contact__input" id="input__email"  autocomplete="email" name="email">
                         </div>
                         
                         <div class="contact__content">
-                            <label for="" class="contact__label">Mensaje</label>
-                            <textarea name="" id="input__message" cols="0" rows="7" class="contact__input"></textarea>
+                            <label for="input__message" class="contact__label">Mensaje</label>
+                            <textarea id="input__message" cols="0" rows="7" class="contact__input" name="message"></textarea>
                         </div>
                     </div>
-
+                    <input type="hidden" name="_captcha" value="false">
 
                     <div>
                         <span href="#" class="button button--flex" id="btnSend">
-                            Enviar mensaje
-                            <i class="uil uil message button__icon"></i>
+                            Send <i class="uil uil-telegram-alt button__icon"></i>
                         </span>
                     </div>
                 </form>
