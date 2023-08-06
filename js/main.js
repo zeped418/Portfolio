@@ -283,7 +283,7 @@ btnSend.addEventListener("click", function (event) {
     if (isValid) {
         audioTrue.play()
         alertSuccess();
-        // myForm.submit();
+        myForm.submit();
         input__name.value = "";
         input__phone.value = "";
         input__email.value = "";
