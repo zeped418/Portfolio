@@ -140,9 +140,8 @@ img {
 /*==================== LAYOUT ====================*/
 .container {
     max-width: 768px;
-    /* margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5); */
-    margin: 0 auto;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
 }
 
 .grid {
@@ -1005,6 +1004,11 @@ footer{
 }
 
 @media screen and (min-width:1024px){
+    
+    .container{
+        margin: 0 auto;
+    }
+
     .header,
     .main,
     .footer__container{
