@@ -469,6 +469,7 @@ img {
 .skills__open .skills__list {
     height: max-content;
     margin-bottom: var(--mb-2-5);
+    transition: .3s;
 }
 
 .skills__open .skills__arrow {
