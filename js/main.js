@@ -27,12 +27,12 @@ function linkAction() {
 
 
 // Percentage in bar
-const skills = document.querySelectorAll('.skills__name')
-for (const skill of skills.values()) {
-    const percentage = skill.nextElementSibling.textContent
-    const skillBar = skill.parentElement.nextElementSibling.firstElementChild
-    skillBar.style.width = percentage
-}
+// const skills = document.querySelectorAll('.skills__name')
+// for (const skill of skills.values()) {
+//     const percentage = skill.nextElementSibling.textContent
+//     const skillBar = skill.parentElement.nextElementSibling.firstElementChild
+//     skillBar.style.width = percentage
+// }
 
 // Accordion skills
 const skillsContent = document.getElementsByClassName('skills__content'),
@@ -76,11 +76,20 @@ tabs.forEach(tab => {
 
 const modalViews = document.querySelectorAll('.services__modal'),
     modalBtns = document.querySelectorAll('.services__button'),
-    modalCloses = document.querySelectorAll('.services__modal-close');
+    modalCloses = document.querySelectorAll('.services__modal-close'),
+    services__title= document.querySelectorAll('.services__title');
 
 let modal = function (modalClick) {
     modalViews[modalClick].classList.add('active-modal');
 };//Function click
+
+
+services__title.forEach((title, i) => {
+    title.addEventListener('click', () => {
+        modal(i);
+    })
+});
+
 
 modalBtns.forEach((modalBtn, i) => {
     modalBtn.addEventListener('click', () => {
@@ -169,11 +178,11 @@ const audioTrue = new Audio();
 audioTrue.src = "./sounds/coin.mp3"
 
 function alertWrong() {
-    swal("Oh no!", "Something went wrong. Please check the form again", "error");
+    swal("Oh no!", "Information is wrong. Try again, please.", "error");
 }
 
 function alertSuccess() {
-    swal("Great!", "I'll get in touch soon with you", "success");
+    swal("Great!", "I'll contact you as soon as possible.", "success");
 }
 
 function checkName() {
@@ -195,7 +204,7 @@ function checkName() {
         input__name.style.border = "solid thin red";
         alert__element__name.style.display = "block"
         alert__text__name.insertAdjacentHTML("afterbegin",
-            `Name is wrong.`);
+            `Incorrect name`);
         isName = false;
     }
 }
@@ -220,7 +229,7 @@ function checkPhone() {
         input__phone.style.border = "solid thin red";
         alert__element__phone.style.display = "block"
         alert__text__phone.insertAdjacentHTML("afterbegin",
-            `Phone is incorrect.`);
+            `Incorrect phone`);
         isPhone = false;
     }
 }
@@ -237,7 +246,7 @@ function checkEmail() {
         input__email.style.border = "solid thin red";
         alert__element__email.style.display = "block"
         alert__text__email.insertAdjacentHTML("afterbegin",
-            `Email is incorrect.`);
+            `Incorrect e-mail`);
         isEmail = false;
     }
 }
@@ -253,7 +262,7 @@ function checkMessage() {
         input__message.style.border = "solid thin red";
         alert__element__message.style.display = "block"
         alert__text__message.insertAdjacentHTML("afterbegin",
-            `Message incorrect.`);
+            `Incorrect message`);
         isMessage = false;
     }
 }

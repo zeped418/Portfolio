@@ -977,7 +977,7 @@ footer {
     }
 
     .about__description {
-        text-align: initial;
+        text-align: justify;
     }
 
     .about__info {
