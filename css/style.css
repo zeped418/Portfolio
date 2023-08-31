@@ -3,12 +3,9 @@
 
 /*==================== VARIABLES CSS ====================*/
 :root {
-    --header-height: 3rem;
 
     /*========== Colors ==========*/
-    /* Change favorite color */
     --hue-color: 230;
-    /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
     /* HSL color mode */
     --first-color: hsl(var(--hue-color), 69%, 61%);
@@ -26,8 +23,6 @@
 
     /*========== Font and typography ==========*/
     --body-font: 'Poppins', sans-serif;
-
-    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
     --big-font-size: 2rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.25rem;
@@ -41,7 +36,6 @@
     --font-semi-bold: 600;
 
     /*========== Margenes Bottom ==========*/
-    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
     --mb-0-25: .25rem;
     --mb-0-5: .5rem;
     --mb-0-75: .75rem;
@@ -50,11 +44,6 @@
     --mb-2: 2rem;
     --mb-2-5: 2.5rem;
     --mb-3: 3rem;
-
-    /*========== z index ==========*/
-    --z-tooltip: 10;
-    --z-fixed: 100;
-    --z-modal: 1000;
 }
 
 /* Font size for large devices */
@@ -70,12 +59,6 @@
     }
 }
 
-/*========== Variables Dark theme ==========*/
-
-
-/*========== Button Dark/Light ==========*/
-
-
 /*==================== BASE ====================*/
 * {
     box-sizing: border-box;
@@ -88,7 +71,7 @@ html {
 }
 
 body {
-    margin: 0 0 var(--header-height) 0;
+    margin: 0 0 var(3rem) 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
@@ -154,14 +137,14 @@ img {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: var(--z-fixed);
+    z-index: 10;
     background-color: var(--body-color);
 }
 
 /*==================== NAV ====================*/
 .nav {
     max-width: 968px;
-    height: var(--header-height);
+    height: var(3rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -258,7 +241,6 @@ img {
 }
 
 .home__content {
-    grid-template-columns: .5fr 3fr;
     padding-top: 3.5rem;
     align-items: center;
 }
@@ -421,7 +403,7 @@ img {
 
 /*==================== SKILLS ====================*/
 .skills__container {
-    row-gap: 0;
+    row-gap: 15px;
 }
 
 .skills__header {
@@ -634,7 +616,7 @@ img {
     align-items: center;
     justify-content: center;
     padding: 0 1rem;
-    z-index: var(--z-modal);
+    z-index: 20;
     opacity: 0;
     visibility: hidden;
     transition: .3s;
@@ -681,7 +663,6 @@ img {
     opacity: 1;
     visibility: visible;
 }
-
 /*==================== PORTFOLIO ====================*/
 .portfolio__container {
     overflow: initial;
@@ -689,6 +670,7 @@ img {
 
 .portfolio__content {
     padding: 0 1.5rem;
+    padding: 0rem 3rem 3rem 3rem;
 }
 
 .portfolio__img {
@@ -708,12 +690,18 @@ img {
     margin-bottom: var(--mb-0-75);
 }
 
-.portfolio__paragraph{
-    margin-top: 2rem;
-    text-align: center;
+.portfolio__social{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-
+.portfolio__social__paragraph{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
 .portfolio__button:hover .button__icon {
     transform: translateX(0.25rem);
@@ -855,10 +843,6 @@ footer {
         column-gap: 0;
     }
 
-    .home__content {
-        grid-template-columns: .25fr 3fr;
-    }
-
     .home__blob {
         width: 250px;
     }
@@ -873,9 +857,9 @@ footer {
 }
 
 @media screen and (min-width:568px) {
-    .home__content {
-        grid-template-columns: max-content 1fr 1fr;
-    }
+        .home__content {
+            grid-template-columns: max-content 1fr 1fr;
+        }
 
     .home__data {
         grid-column: initial;
@@ -890,7 +874,7 @@ footer {
     .skills__container,
     .contact__container,
     .footer__container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
 
     .qualification__sections {
@@ -932,7 +916,7 @@ footer {
     }
 
     .nav {
-        height: calc(var(--header-height)+1.5rem);
+        height: calc(var(3rem)+1.5rem);
         column-gap: 1rem;
     }
 
