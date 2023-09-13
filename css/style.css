@@ -806,7 +806,7 @@ footer {
 }
 
 .footer__bg {
-    background-color: #4f30ff;
+    background-color: var(--container-color);
     padding: 2rem 0 3rem 0;
 }
 
