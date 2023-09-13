@@ -12,12 +12,12 @@
     --first-color-second: hsl(var(--hue-color), 69%, 61%);
     --first-color-alt: hsl(var(--hue-color), 57%, 53%);
     --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-    --title-color: hsl(var(--hue-color), 8%, 15%);
-    --text-color: hsl(var(--hue-color), 8%, 45%);
-    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --title-color: hsl(var(--hue-color), 8%, 85%);
+    --text-color: hsl(var(--hue-color), 8%, 80%);
+    --text-color-light: hsl(var(--hue-color), 8%, 75%);
     --input-color: hsl(var(--hue-color), 70%, 96%);
-    --body-color: hsl(var(--hue-color), 60%, 99%);
-    --container-color: #fff;
+    --body-color: hsl(var(--hue-color), 60%, 1%);
+    --container-color: rgb(20, 29, 54);
     --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
@@ -106,7 +106,18 @@ img {
 
 .section__title {
     font-size: var(--h1-font-size);
-    color: var(--title-color);
+    /* color: var(--title-color); */
+    background-image: linear-gradient(to right, #8a17fd, #7530ff, #2e8cff);
+    width: fit-content;
+    /* padding: .8rem;
+    border-radius: 15px 0px  16px 0px; */
+    margin: auto;
+    -webkit-background-clip: text;
+    /* Para navegadores webkit como Chrome y Safari */
+    background-clip: text;
+    /* Esto permite que el fondo del elemento sea visible solo donde el texto está presente */
+    color: transparent;
+    /* Hace que el texto sea transparente */
 }
 
 .section__subtitle {
@@ -178,7 +189,7 @@ img {
         width: 100%;
         background-color: var(--body-color);
         padding: 2rem 1.5rem 4rem;
-        box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+        box-shadow: 0 -1px 4px rgb(98, 0, 255);
         border-radius: 1.5rem 1.5rem 0 0;
         transition: 0.3s;
     }
@@ -229,10 +240,9 @@ img {
     color: var(--first-color)
 }
 
-/* Change background header */
 
 .scroll-header {
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+    box-shadow: 0 -1px 4px rgba(101, 5, 255, 0.726);
 }
 
 /*==================== HOME ====================*/
@@ -322,12 +332,26 @@ img {
 /*==================== BUTTONS ====================*/
 .button {
     display: inline-block;
-    background-color: var(--first-color);
+    background-image: linear-gradient(to left, #7423c5, #5923c5, #2323c5,#2323c5,#5923c5,#7423c5);
+    background-size: 200% 100%;
     color: #fff;
     padding: 1rem;
     border-radius: .5rem;
     font-weight: var(--font-medium);
+    animation: cambiar-color 6s ease infinite;
 }
+
+@keyframes cambiar-color {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: -100% 50%;
+    }
+}   
 
 .button:hover {
     background-color: var(--first-color-alt);
@@ -352,12 +376,12 @@ img {
 .button--link {
     padding: 0;
     background-color: transparent;
-    color: var(--first-color);
+    color: whitesmoke;
 }
 
 .button--link:hover {
     background-color: transparent;
-    color: var(--first-color-alt);
+    color: rgb(211, 211, 211);
 }
 
 
@@ -599,6 +623,8 @@ img {
 .services__button {
     cursor: pointer;
     font-size: var(--small-font-size);
+    padding-left: .5rem;
+    padding-right: .3rem;
 }
 
 .services__button:hover .button__icon {
@@ -663,6 +689,7 @@ img {
     opacity: 1;
     visibility: visible;
 }
+
 /*==================== PORTFOLIO ====================*/
 .portfolio__container {
     overflow: initial;
@@ -690,14 +717,14 @@ img {
     margin-bottom: var(--mb-0-75);
 }
 
-.portfolio__social{
+.portfolio__social {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.portfolio__social__paragraph{
+.portfolio__social__paragraph {
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -733,9 +760,9 @@ img {
     color: var(--text-color-light);
 }
 
-.contact__content {
+/* .contact__content {
     background-color: var(--input-color);
-}
+} */
 
 .contact__label {
     font-size: var(--smaller-font-size);
@@ -745,7 +772,7 @@ img {
 
 .contact__input {
     width: 100%;
-    background-color: var(--input-color);
+    background-color: var(--container-color);
     color: var(--text-color);
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
@@ -779,7 +806,7 @@ footer {
 }
 
 .footer__bg {
-    background-color: var(--first-color-second);
+    background-color: #4f30ff;
     padding: 2rem 0 3rem 0;
 }
 
@@ -857,9 +884,9 @@ footer {
 }
 
 @media screen and (min-width:568px) {
-        .home__content {
-            grid-template-columns: max-content 1fr 1fr;
-        }
+    .home__content {
+        grid-template-columns: max-content 1fr 1fr;
+    }
 
     .home__data {
         grid-column: initial;
